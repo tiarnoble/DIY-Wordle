@@ -14,7 +14,7 @@ def read_possible_words(filename):
     file = open(filename, 'r')
     words = file.readlines()
     clean_words = [word.strip() for word in words]
-    return clean_words;
+    return clean_words
 
 def valid_guess(guess, possible_words):
     """
