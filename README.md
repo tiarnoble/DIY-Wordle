@@ -3,6 +3,8 @@ This program is modeled after "Wordle", a popular word game from the NY Times.
 
 When you run the program, instructions on how to play are shown and you are prompted for your first guess.
 
+![image](https://user-images.githubusercontent.com/81984349/223856857-70be9769-ce80-482c-bacc-6f0e643d7eab.png)
+
 Each guess must be a valid 5-letter English word, and the program will re-prompt you if you provide an invalid word.
 
 When you guess a valid word, your guess will appear with each letter in a colored box, which represents whether the letter is correct, somewhere else in the word, or not in the word at all.
