@@ -83,7 +83,7 @@ def correct_guess(guess):
         print_letter(m, 'GREEN')
         print(Style.RESET_ALL, end='   ')
 
-    print()
+    print('\n')
     print("Congrats! You guessed the word!")
 
 def print_letter(letter, color):
@@ -100,8 +100,75 @@ def print_letter(letter, color):
     elif (color == 'YELLOW'):
         print(Back.YELLOW + '  ' + letter.upper(), end='  ')
 
-    else:
+    elif (color == 'BLACK'):
         print(Back.BLACK + Fore.WHITE + '  ' + letter.upper(), end='  ')
+
+    else:
+        print(Back.WHITE + Fore.BLACK + '  ' + letter.upper(), end='  ')
+
+
+
+def init_keyboard():
+
+    keyboard = {
+        'Q': "GRAY",
+        'W': "GRAY",
+        'E': "GRAY",
+        'R': "GRAY",
+        'T': "GRAY",
+        'Y': "GRAY",
+        'U': "GRAY",
+        'I': "GRAY",
+        'O': "GRAY",
+        'P': "GRAY",
+        'A': "GRAY",
+        'S': "GRAY",
+        'D': "GRAY",
+        'F': "GRAY",
+        'G': "GRAY",
+        'H': "GRAY",
+        'J': "GRAY",
+        'K': "GRAY",
+        'L': "GRAY",
+        'Z': "GRAY",
+        'X': "GRAY",
+        'C': "GRAY",
+        'V': "GRAY",
+        'B': "GRAY",
+        'N': "GRAY",
+        'M': "GRAY"
+    }
+
+    return keyboard
+
+
+def print_keyboard(keyboard):
+
+    print()
+
+    for key, color in keyboard.items():
+        print_letter(key, color)
+        if (key == 'P'):
+            print(Style.RESET_ALL)
+            print('\n   ', end='')
+        elif (key == 'L'):
+            print(Style.RESET_ALL)
+            print('\n      ', end='')
+        else:
+            print(Style.RESET_ALL, end=' ')
+
+    print()
+
+
+def print_previous_guesses(previous_guesses):
+
+    for guess in previous_guesses.values():
+        for x in guess:
+            print_letter(x[0], x[1])
+            print(Style.RESET_ALL, end='   ')
+
+        print('\n')
+
 
 def run_game():
     """
@@ -118,25 +185,40 @@ def run_game():
     # randomly choose secret word for this game
     secret_word = random.choice(possible_answers)
 
+    keyboard = init_keyboard()
+
+    previous_guesses = {}
+
     guess_number = 1
     while(1):
 
         # initialize list containing info on each letter
         secret_word_info = init_secret_word_info(secret_word)
 
+        if guess_number > 1:
+            print_keyboard(keyboard)
+
+        print('\n')
+
         # prompt for word and read user input
-        print()
         guess = input("Please type guess number " + str(guess_number) + " and click enter: ")
+
+        print('\n')
 
         # make sure the guess is valid
         if valid_guess(guess, possible_words) == False:
             print("That is not a valid 5-letter word. Please try again.")
             continue
 
+        if guess_number > 1:
+            print_previous_guesses(previous_guesses)
+
         # check if the guess is correct
         if guess == secret_word:
             correct_guess(guess)
             return
+
+        guess_list = []
 
         # update secret_word_info based on correct letters
         secret_word_info = update_letters_found(guess, secret_word, secret_word_info)
@@ -146,28 +228,36 @@ def run_game():
 
             letter = guess[j]
             if letter == secret_word[j]:
-                print_letter(letter, 'GREEN')
+                color = 'GREEN'
 
             elif letter in secret_word:
                 yellow = False
 
                 for k in range(5):
                     if secret_word_info[k][0] == letter and secret_word_info[k][1] == 'not found' and secret_word_info[k][2] == 'not accounted for':
-                        print_letter(letter, 'YELLOW')
+                        color = 'YELLOW'
                         secret_word_info[k][2] = 'accounted for'
                         yellow = True
                         break
 
                 if yellow == False:
-                    print_letter(letter, 'GRAY')
+                    color = 'BLACK'
 
             else:
-                print_letter(letter, 'GRAY')
+                color = 'BLACK'
+
+            print_letter(letter, color)
+            guess_list.append((letter, color))
+            keyboard[letter.upper()] = color
 
             print(Style.RESET_ALL, end='   ')
 
         # increment guess count
         guess_number += 1
+
+        previous_guesses[guess_number] = guess_list
+
+        print('\n')
 
         # check if user has run out of guesses
         if (guess_number > 6):
@@ -184,7 +274,7 @@ def main():
           "Each letter in each guess will appear in one of three colors:\n"
           "GREEN: the letter is in the correct place\n"
           "YELLOW: the letter is in the word but not in that place \n"
-          "GRAY: the letter is not in the word at all\n")
+          "BLACK: the letter is not in the word at all\n")
     print("If you haven't figured it out at the end I will reveal the word.")
 
     # start the game
