@@ -2,7 +2,7 @@
 This program is modeled after "Wordle", a popular word game from the NY Times.
 
 
-![diy_wordle_video_25smalleragain](https://user-images.githubusercontent.com/81984349/224393948-01d54eb8-c883-46fd-b15b-d2e198028bab.gif)
+![diy_wordle_video_small](https://user-images.githubusercontent.com/81984349/224394247-dea8354f-40a6-4def-8ff7-c838acb377f3.gif)
 
 
 Step-By-Step Demonstration:
