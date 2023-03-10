@@ -1,6 +1,9 @@
 # DIY-Wordle
 This program is modeled after "Wordle", a popular word game from the NY Times.
 
+![diy_wordle_video](https://user-images.githubusercontent.com/81984349/224392382-418c69fe-41ce-4df7-ba83-32a524f14d9d.gif)
+
+Step-By-Step Demonstration:
 When you run the program, instructions on how to play are shown and you are prompted for your first guess.
 
 ![image](https://user-images.githubusercontent.com/81984349/223861727-bef07e9d-6407-4c4c-bd23-b7be0a5af257.png)
