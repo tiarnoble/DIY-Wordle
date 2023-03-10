@@ -107,8 +107,13 @@ def print_letter(letter, color):
         print(Back.WHITE + Fore.BLACK + '  ' + letter.upper(), end='  ')
 
 
-
 def init_keyboard():
+    """
+    Creates dictionary with every letter in the alphabet as a key,
+    in the order in which they appear on the keyboard, from left to right. Initializes every value to "GRAY"
+    which is how they will appear when they have not yet been tried by the user.
+    :return: dictionary of letters and colors
+    """
 
     keyboard = {
         'Q': "GRAY",
@@ -143,6 +148,14 @@ def init_keyboard():
 
 
 def print_keyboard(keyboard):
+    """
+    Print the dictionary with each letter and each color corresponding to the game play thus far.
+    If the letter has been tried and is not in the word, it is black.
+    If the letter has been tried and was put in the right place, it is green.
+    If the letter has been tried and was put in the wrong place, it is yellow.
+    :param keyboard: dictionary of letters and colors
+    :return: returns nothing
+    """
 
     print()
 
@@ -161,6 +174,11 @@ def print_keyboard(keyboard):
 
 
 def print_previous_guesses(previous_guesses):
+    """
+    Prints each of the previous guesses chronologically above the most recent guess.
+    :param previous_guesses: dictionary of key: guess number, value: tuple with letter and color
+    :return: returns nothing
+    """
 
     for guess in previous_guesses.values():
         for x in guess:
@@ -184,6 +202,12 @@ def run_game():
 
     # randomly choose secret word for this game
     secret_word = random.choice(possible_answers)
+
+    # testing
+    #####################################
+    #secret_word = "pluck"
+    #print("secret word: " + secret_word)
+    #####################################
 
     keyboard = init_keyboard()
 
