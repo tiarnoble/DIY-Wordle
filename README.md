@@ -2,29 +2,29 @@
 This program is modeled after "Wordle", a popular word game from the NY Times.
 
 
-![diy_wordle_video_small](https://user-images.githubusercontent.com/81984349/224394247-dea8354f-40a6-4def-8ff7-c838acb377f3.gif)
+![diy_wordle_video_small2](https://user-images.githubusercontent.com/81984349/224394976-783b8622-9225-4b68-b0e7-661c43fd0887.gif)
 
 
 Step-By-Step Demonstration:
 When you run the program, instructions on how to play are shown and you are prompted for your first guess.
 
-![image](https://user-images.githubusercontent.com/81984349/223861727-bef07e9d-6407-4c4c-bd23-b7be0a5af257.png)
+![image](https://user-images.githubusercontent.com/81984349/224395020-154c9bc8-9f73-45a5-83c8-a0fdb452f4da.png)
 
 Each guess must be a valid 5-letter English word, and the program will re-prompt you if you provide an invalid word.
 
-![image](https://user-images.githubusercontent.com/81984349/223861772-371dba6f-808d-4a93-b32a-2f1a296bab43.png)
+![image](https://user-images.githubusercontent.com/81984349/224395056-14ff2321-4b48-4da5-9e46-38dc9610aef3.png)
 
 When you guess a valid word, your guess will appear with each letter in a colored box, which represents whether the letter is correct, somewhere else in the word, or not in the word at all.
 
-![image](https://user-images.githubusercontent.com/81984349/223861836-733879de-e2d4-443f-8360-2ed9625016ad.png)
+![image](https://user-images.githubusercontent.com/81984349/224395109-2792d592-901d-40fd-8944-a4ba987365d2.png)
 
 All of your previous guesses will also appear so that you can use that information to think of your next guess.
 
 A keyboard will appear below the guesses in order to show you which letters have not been guessed, or which letters are currently green, yellow, or black.
 
-![image](https://user-images.githubusercontent.com/81984349/223861939-c98ccb06-8a2c-45c1-b580-72dcaa3f71dc.png)
+![image](https://user-images.githubusercontent.com/81984349/224395151-4f6d072a-b1e0-4be8-b666-bd9f9528d0f0.png)
 
 You will have 6 chances to guess the word, and if you don't get it by the end, the program will reveal the word.
 
-![image](https://user-images.githubusercontent.com/81984349/223862015-d649c8eb-fcac-4182-a6ad-6e0b152d694b.png)
+![image](https://user-images.githubusercontent.com/81984349/224395193-c7057684-db1c-4431-8760-20ef284f43ba.png)
 
